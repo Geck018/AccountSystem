@@ -29,8 +29,6 @@ public class AccountType implements Serializable
         this.mnemonic = mnemonic;
         this.accountTypeName = accountTypeName;
         this.creationDate = creationDate;
-
-
     }
 
     public AccountType() {

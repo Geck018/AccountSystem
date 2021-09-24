@@ -1,9 +1,15 @@
 package za.ac.nwu.ac.domain.dto;
 
+import io.swagger.annotations.ApiModel;
+import za.ac.nwu.ac.domain.persistence.AccountType;
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@ApiModel(value = "AccountType", description = "A DTO that represents the AccountType")
 public class AccountTypeDto implements Serializable
 {
     private String mnemonic;
@@ -19,6 +25,22 @@ public class AccountTypeDto implements Serializable
         this.creationDate = creationDate;
     }
 
+    public AccountTypeDto(AccountType accountType)
+    {
+        this.setAccountTypeName(accountType.getAccountTypeName());
+        this.setCreationDate(accountType.getCreationDate());
+        this.setMnemonic(accountType.getMnemonic());
+    }
+
+    @ApiModelProperty(
+            position = 1,
+            value= "AccountType Mnemonic",
+            name = "Mnemonic",
+            notes = "Uniquely identifies the Account type",
+            dataType = "java.lang.String",
+            example = "MILES",
+            required = true)
+
     public String getMnemonic() {
         return mnemonic;
     }
@@ -27,6 +49,16 @@ public class AccountTypeDto implements Serializable
         this.mnemonic = mnemonic;
     }
 
+    @ApiModelProperty(
+            position = 2,
+            value= "AccountType Name",
+            name = "Name",
+            notes = "The name of the Account type",
+            dataType = "java.lang.String",
+            example = "Miles",
+            allowEmptyValue = false,
+            required = true)
+
     public String getAccountTypeName() {
         return accountTypeName;
     }
@@ -34,6 +66,16 @@ public class AccountTypeDto implements Serializable
     public void setAccountTypeName(String accountTypeName) {
         this.accountTypeName = accountTypeName;
     }
+
+    @ApiModelProperty(
+            position = 3,
+            value= "AccountType Creation Date",
+            name = "CreationDate",
+            notes = "This is the date on which the AccountType was created",
+            dataType = "java.lang.String",
+            example = "2020-01-01",
+            allowEmptyValue = false,
+            required = false)
 
     public LocalDate getCreationDate() {
         return creationDate;
@@ -49,6 +91,12 @@ public class AccountTypeDto implements Serializable
         if (o == null || getClass() != o.getClass()) return false;
         AccountTypeDto that = (AccountTypeDto) o;
         return Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate);
+    }
+
+    @JsonIgnore
+    public AccountType getAccountType()
+    {
+        return new AccountType(getMnemonic(),getAccountTypeName(), getCreationDate());
     }
 
     @Override
