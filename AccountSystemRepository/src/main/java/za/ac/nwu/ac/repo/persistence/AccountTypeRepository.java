@@ -12,29 +12,13 @@ import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 @Repository
 public interface AccountTypeRepository extends JpaRepository<AccountType, Long>
 {
-    @Query(value = "SELECT "+
-            "       ACCOUNT_TYPE_ID,"+
-            "       ACCOUNT_TYPE_NAME,"+
-            "       CREATION_DATE,"+
-            "       MNEMONIC"+
-            "FROM"+
-            "       hr.ACCOUNT_TYPE"+
-            "WHERE MNEMONIC = :mnemonic",nativeQuery = true)
+//not recommended
+    @Query(value = "SELECT "+"ACCOUNT_TYPE_ID, "+"ACCOUNT_TYPE_NAME, "+"CREATION_DATE, "+"MNEMONIC "+"FROM "+"HR.ACCOUNT_TYPE "+ "WHERE MNEMONIC = :mnemonic", nativeQuery = true)
     AccountType getAccountTypeByMnemonicNativeQuery(String mnemonic);
-
-    @Query(value = "SELECT "+
-            "       at"+
-            "   FROM "+
-            "       AccountType at"+
-            "   WHERE at.accountTransactions. = :mnemonic")
+//more optimal for single tables
+    @Query(value = "SELECT "+"at "+"FROM "+"AccountType at "+"WHERE at.mnemonic = :mnemonic")
     AccountType getAccountTypeByMnemonic(String mnemonic);
-
-    @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto("+
-            "       at.mnemonic,"+
-            "       at.accountTypeName,"+
-            "       at.creationDate )"+
-            "FROM"+
-            "       AccountType at"+
-            "WHERE at.mnemonic = :mnemonic")
+//multiple tables, joins
+    @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( "+"at.mnemonic "+"at.accountTypeName "+"at.creationDate) "+"FROM "+"AccountType at "+"WHERE at.mnemonic = :mnemonic")
     AccountType getAccountTypeDtoByMnemonic(String mnemonic);
 }
