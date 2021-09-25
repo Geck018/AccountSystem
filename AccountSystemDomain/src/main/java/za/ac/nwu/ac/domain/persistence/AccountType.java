@@ -34,6 +34,11 @@ public class AccountType implements Serializable
     public AccountType() {
     }
 
+    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate)
+    {
+
+    }
+
     public Long getAccountTypeId() {
         return accountTypeId;
     }
