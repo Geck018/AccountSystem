@@ -4,25 +4,21 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "",schema ="")
+@Table(name = "ACCOUNT_TYPE",schema ="hr")
 public class AccountType implements Serializable
 {
-    @Id
-    @SequenceGenerator(name = "", sequenceName = "", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "")
-    @Column(name = "ACCOUNT_TYPE_ID")
+    private LocalDate  creationDate;
+    private String accountTypeName;
+    private String mnemonic;
     private Long accountTypeId;
 
-    @Column(name = "MNEMONIC")
-    private String mnemonic;
+    private Set<AccountTransaction> accountTransactions;
 
-    @Column(name = "ACCOUNT_TYPE_NAME")
-    private String accountTypeName;
-
-    @Column(name = "CREATION_DATE")
-    private LocalDate  creationDate;
+    public AccountType() {
+    }
 
     public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
         this.accountTypeId = accountTypeId;
@@ -31,14 +27,14 @@ public class AccountType implements Serializable
         this.creationDate = creationDate;
     }
 
-    public AccountType() {
-    }
-
     public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate)
     {
 
     }
-
+    @Id
+    @SequenceGenerator(name = "ACCOUNT_TYPE", sequenceName = "hr.ACC_TYPE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TYPE_SEQ")
+    @Column(name = "ACCOUNT_TYPE_ID")
     public Long getAccountTypeId() {
         return accountTypeId;
     }
@@ -46,7 +42,7 @@ public class AccountType implements Serializable
     public void setAccountTypeId(Long accountTypeId) {
         this.accountTypeId = accountTypeId;
     }
-
+    @Column(name = "MNEMONIC")
     public String getMnemonic() {
         return mnemonic;
     }
@@ -54,7 +50,7 @@ public class AccountType implements Serializable
     public void setMnemonic(String mnemonic) {
         this.mnemonic = mnemonic;
     }
-
+    @Column(name = "ACCOUNT_TYPE_NAME")
     public String getAccountTypeName() {
         return accountTypeName;
     }
@@ -66,7 +62,7 @@ public class AccountType implements Serializable
     public LocalDate getCreationDate() {
         return creationDate;
     }
-
+    @Column(name = "CREATION_DATE")
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
