@@ -25,13 +25,16 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
     @Override
     public List<AccountTypeDto> getAllAccountTypes()
     {
-        List<AccountTypeDto> accountTypeDtos = new ArrayList<>();
-        accountTypeDtos.add(new AccountTypeDto("MILES","Miles", LocalDate.now()));
         return accountTypeTranslator.getAllAccountTypes();
     }
     @Override
     public AccountTypeDto getAccountTypeByMnemonic(String mnemonic)
     {
         return accountTypeTranslator.getAccountTypeByMnemonic(mnemonic);
+    }
+
+    public boolean methodToTest()
+    {
+        return true;
     }
 }

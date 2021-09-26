@@ -7,24 +7,24 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name="",schema="")
+@Table(name="ACCOUNT_TRANSACTION",schema="hr")
 public class AccountTransaction implements Serializable {
     @Id
-    @SequenceGenerator(name=" ",sequenceName = "", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "")
-    @Column(name = "")
+    @SequenceGenerator(name="ACC_TX_SEQ",sequenceName = "hr.ACC_TX_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TX_SEQ")
+    @Column(name = "ACCOUNT_TX_ID")
     private long transactionId;
 
-    @Column(name = "")
+    @Column(name = "ACCOUNT_TYPE_ID")
     private long accountType;
 
-    @Column(name = "")
+    @Column(name = "MEMBER_ID")
     private long memberID;
 
-    @Column(name = "")
+    @Column(name = "AMOUNT")
     private long amount;
 
-    @Column(name = "")
+    @Column(name = "TX_DATE")
     private LocalDate transactionDate;
 
     public long getTransactionId() {
