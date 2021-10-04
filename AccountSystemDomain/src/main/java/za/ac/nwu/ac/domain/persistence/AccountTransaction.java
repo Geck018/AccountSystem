@@ -10,6 +10,12 @@ import java.util.Objects;
 @Table(name="ACCOUNT_TRANSACTION",schema="hr")
 public class AccountTransaction implements Serializable {
 
+    public AccountTransaction(long accountType, String miles, LocalDate txDate, String memberID) {
+    }
+
+    public AccountTransaction(long accountType, String miles, LocalDate txDate, long memberID) {
+    }
+
     public long getTransactionId() {
         return transactionId;
     }
@@ -34,24 +40,24 @@ public class AccountTransaction implements Serializable {
     }
 
     @Column(name = "MEMBER_ID")
-    private long memberID;
-    public long getMemberID() {
+    private String memberID;
+    public String getMemberID() {
         return memberID;
     }
 
-    @Column(name = "AMOUNT")
-    private long amount;
-    public void setMemberID(long memberID) {
+    @Column(name = "MILES")
+    private String miles;
+    public void setMemberID(String memberID) {
         this.memberID = memberID;
     }
 
-    public long getAmount() {
-        return amount;
+    public String getMiles() {
+        return miles;
     }
 
 
-    public void setAmount(long amount) {
-        this.amount = amount;
+    public void setMiles(long amount) {
+        this.miles = miles;
     }
 
     @Column(name = "TX_DATE")
@@ -64,11 +70,11 @@ public class AccountTransaction implements Serializable {
         this.transactionDate = transactionDate;
     }
 
-    public AccountTransaction(long transactionId, long accountTypeId, long memberID, long amount, LocalDate transactionDate) {
+    public AccountTransaction(long transactionId, long accountTypeId, String memberID, long amount, LocalDate transactionDate) {
         this.transactionId = transactionId;
         this.accountType= accountTypeId;
         this.memberID = memberID;
-        this.amount = amount;
+        this.miles = miles;
         this.transactionDate = transactionDate;
     }
 
@@ -80,12 +86,12 @@ public class AccountTransaction implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountTransaction that = (AccountTransaction) o;
-        return transactionId == that.transactionId && accountType == that.accountType && memberID == that.memberID && amount == that.amount && Objects.equals(transactionDate, that.transactionDate);
+        return transactionId == that.transactionId && accountType == that.accountType && memberID == that.memberID && miles == that.miles && Objects.equals(transactionDate, that.transactionDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactionId, accountType, memberID, amount, transactionDate);
+        return Objects.hash(transactionId, accountType, memberID, miles, transactionDate);
     }
 
     @Override
@@ -94,7 +100,7 @@ public class AccountTransaction implements Serializable {
                 "transactionId=" + transactionId +
                 ", accountTypeId=" + accountType +
                 ", memberID=" + memberID +
-                ", amount=" + amount +
+                ", amount=" + miles +
                 ", transactionDate=" + transactionDate +
                 '}';
     }

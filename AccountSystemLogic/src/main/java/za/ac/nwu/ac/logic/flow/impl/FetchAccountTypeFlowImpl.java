@@ -3,12 +3,11 @@ package za.ac.nwu.ac.logic.flow.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
+import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.ac.translator.AccountTypeTranslator;
 
 import javax.transaction.Transactional;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 //All flow diagram Logic steps in here, one class per flow
@@ -31,6 +30,11 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
     public AccountTypeDto getAccountTypeByMnemonic(String mnemonic)
     {
         return accountTypeTranslator.getAccountTypeByMnemonic(mnemonic);
+    }
+    @Override
+    public AccountType getAccountTypeDtoByMnemonic(String mnemonic)
+    {
+        return accountTypeTranslator.getAccountTypeDtoByMnemonic(mnemonic);
     }
 
     public boolean methodToTest()
