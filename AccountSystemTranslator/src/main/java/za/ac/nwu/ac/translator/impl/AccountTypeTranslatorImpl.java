@@ -36,8 +36,9 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         return accountTypeDtos;
     }
 
+
     @Override
-    public AccountTypeDto create(AccountTypeDto accountTypeDto)
+    public AccountTypeDto createAccountType(AccountTypeDto accountTypeDto)
     {
         try
         {
@@ -46,7 +47,7 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         }
         catch (Exception e)
         {
-            throw new RuntimeException("Unable to save to the DB.");
+            throw new RuntimeException("Unable to save to the DB.",e);
         }
     }
 

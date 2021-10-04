@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name = "ACCOUNT_TYPE",schema ="hr")
 public class AccountType implements Serializable
 {
-    private LocalDate  creationDate;
+    private LocalDate creationDate;
     private String accountTypeName;
     private String mnemonic;
     private Long accountTypeId;
@@ -29,7 +29,9 @@ public class AccountType implements Serializable
 
     public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate)
     {
-
+        this.mnemonic = mnemonic;
+        this.accountTypeName = accountTypeName;
+        this.creationDate = creationDate;
     }
     @Id
     @SequenceGenerator(name = "ACC_TYPE_SEQ", sequenceName = "hr.ACC_TYPE_SEQ", allocationSize = 1)

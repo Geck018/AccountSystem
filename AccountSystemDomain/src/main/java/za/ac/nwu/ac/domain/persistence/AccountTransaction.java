@@ -9,45 +9,38 @@ import java.util.Objects;
 @Entity
 @Table(name="ACCOUNT_TRANSACTION",schema="hr")
 public class AccountTransaction implements Serializable {
+
+    public long getTransactionId() {
+        return transactionId;
+    }
     @Id
     @SequenceGenerator(name="ACC_TX_SEQ",sequenceName = "hr.ACC_TX_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TX_SEQ")
     @Column(name = "ACCOUNT_TX_ID")
     private long transactionId;
-
-    @Column(name = "ACCOUNT_TYPE_ID")
-    private long accountType;
-
-    @Column(name = "MEMBER_ID")
-    private long memberID;
-
-    @Column(name = "AMOUNT")
-    private long amount;
-
-    @Column(name = "TX_DATE")
-    private LocalDate transactionDate;
-
-    public long getTransactionId() {
-        return transactionId;
-    }
-
     public void setTransactionId(long transactionId) {
         this.transactionId = transactionId;
     }
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = AccountType.class)
     @JoinColumn(name = "ACCOUNT_TYPE_ID")
     public long getAccountType() {
         return accountType;
     }
-
+    @Column(name = "ACCOUNT_TYPE_ID")
+    private long accountType;
     public void setAccountType(long accountType) {
         this.accountType = accountType;
     }
 
+    @Column(name = "MEMBER_ID")
+    private long memberID;
     public long getMemberID() {
         return memberID;
     }
 
+    @Column(name = "AMOUNT")
+    private long amount;
     public void setMemberID(long memberID) {
         this.memberID = memberID;
     }
@@ -56,10 +49,13 @@ public class AccountTransaction implements Serializable {
         return amount;
     }
 
+
     public void setAmount(long amount) {
         this.amount = amount;
     }
 
+    @Column(name = "TX_DATE")
+    private LocalDate transactionDate;
     public LocalDate getTransactionDate() {
         return transactionDate;
     }

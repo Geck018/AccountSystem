@@ -39,7 +39,6 @@ public class AccountTypeDto implements Serializable
             notes = "Uniquely identifies the Account type",
             dataType = "java.lang.String",
             example = "MILES",
-            allowEmptyValue = false,
             required = true)
 
     public String getMnemonic() {
@@ -57,7 +56,6 @@ public class AccountTypeDto implements Serializable
             notes = "The name of the Account type",
             dataType = "java.lang.String",
             example = "Miles",
-            allowEmptyValue = false,
             required = true)
 
     public String getAccountTypeName() {
@@ -75,8 +73,7 @@ public class AccountTypeDto implements Serializable
             notes = "This is the date on which the AccountType was created",
             dataType = "java.lang.String",
             example = "2020-01-01",
-            allowEmptyValue = false,
-            required = false)
+            allowEmptyValue = true)
 
     public LocalDate getCreationDate() {
         return creationDate;

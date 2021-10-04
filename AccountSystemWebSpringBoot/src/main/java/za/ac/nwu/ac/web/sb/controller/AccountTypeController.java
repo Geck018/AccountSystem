@@ -24,7 +24,8 @@ public class AccountTypeController {
     private final FetchAccountTypeFlow fetchAccountTypeFlow;
     private final CreateAccountTypeFlow createAccountTypeFlow;
     @Autowired
-    public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow, @Qualifier("createAccountTypeFlowName")CreateAccountTypeFlow createAccountTypeFlow)
+    public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow,
+                                 @Qualifier("createAccountTypeFlowName")CreateAccountTypeFlow createAccountTypeFlow)
     {
         this.fetchAccountTypeFlow = fetchAccountTypeFlow;
         this.createAccountTypeFlow = createAccountTypeFlow;
@@ -67,11 +68,11 @@ public ResponseEntity<String> ping(
             @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)
     })
-    public ResponseEntity<GeneralResponse<AccountTypeDto>>create(
+    public ResponseEntity<GeneralResponse<AccountTypeDto>> createAccountType(
             @ApiParam(value = "Request body to create a new AccountType",required = true)
             @RequestBody AccountTypeDto accountType)
             {
-                AccountTypeDto accountTypeResponse = createAccountTypeFlow.create(accountType);
+                AccountTypeDto accountTypeResponse = createAccountTypeFlow.createAccountType(accountType);
                 GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, accountTypeResponse);
                 return new ResponseEntity<>(response, HttpStatus.CREATED);
             }
