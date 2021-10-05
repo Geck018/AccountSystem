@@ -19,11 +19,7 @@ public class CreateAccountTypeFlowImpl implements CreateAccountTypeFlow
    {
        this.accountTypeTranslator = accountTypeTranslator;
    }
-//   @Autowired
-//   public CreateAccountTransactionFlowImpl(AccountTransactionTranslator translator)
-//   {
-//       this.translator =  translator;
-//   }
+
     @Override
     public AccountTypeDto createAccountType(AccountTypeDto accountType)
     {
