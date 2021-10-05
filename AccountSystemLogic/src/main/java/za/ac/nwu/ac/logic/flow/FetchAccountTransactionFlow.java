@@ -8,5 +8,4 @@ public interface FetchAccountTransactionFlow
 {
     List<AccountTransactionDto> getAllAccountTransactions();
     AccountTransactionDto getAccountTransactionsByAccId(String accountType);
-    AccountTransactionDto getAccountTransactionsByMiles(String miles);
 }

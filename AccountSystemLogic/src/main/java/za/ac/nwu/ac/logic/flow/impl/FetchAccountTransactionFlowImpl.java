@@ -29,10 +29,6 @@ public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionF
     {
         return accountTransactionTranslator.getAccountTransactionByAccId(accountType);
     }
-    @Override
-    public AccountTransactionDto getAccountTransactionsByMiles(String miles)
-    {
-        return accountTransactionTranslator.getAccountTransactionByMiles(miles);
-    }
+
 
 }
