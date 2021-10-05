@@ -13,4 +13,7 @@ public interface AccountTransactionRepository extends JpaRepository<AccountTrans
 
     @Query(value = "SELECT "+"ax "+"FROM "+"AccountTransaction ax "+"WHERE ax.miles =:miles")
     AccountTransaction getAccountTransactionByMiles(String miles);
+
+    @Query()
+    AccountTransaction addAccountTransactionMiles(String amount);
 }

@@ -84,7 +84,7 @@ public class AccountTransactionController {
             @ApiResponse(code = 404, message = "Resource Not Found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)
     })
-    public ResponseEntity<GeneralResponse<AccountTransactionDto>> getAccountTransactionsByAccId(
+    public ResponseEntity<GeneralResponse<AccountTransactionDto>> getAccountTransactions(
             @ApiParam(value = "The account id that uniquely identifies the AccountType",example ="5858", name = "accountType", required = true)
             @PathVariable("accountType") final String accountType)
     {
