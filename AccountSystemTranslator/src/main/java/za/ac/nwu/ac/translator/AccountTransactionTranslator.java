@@ -10,6 +10,6 @@ public interface AccountTransactionTranslator
 {
     List<AccountTransactionDto>getAllAccountTransactions();
     AccountTransactionDto createAccountTransaction(AccountTransactionDto accountTransaction);
-    AccountTransactionDto getAccountTransactionByAccId(long accountType);
+    AccountTransactionDto getAccountTransactionByAccId(String accountType);
     AccountTransactionDto getAccountTransactionByMiles(String miles);
 }

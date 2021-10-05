@@ -9,15 +9,15 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@ApiModel(value = "Account Transaction", description = "A DTO representing the Account Transaction")
+@ApiModel(value = "AccountTransaction", description = "A DTO representing the AccountTransaction")
 public class AccountTransactionDto implements Serializable
 {
-    private long accountType;
+    private String accountType;
     private String memberID;
     private String miles;
     private LocalDate txDate;
 
-    public AccountTransactionDto(long accountTypeID, String memberID, String miles, LocalDate txDate)
+    public AccountTransactionDto(String accountType, String memberID, String miles, LocalDate txDate)
     {
         this.accountType = accountType;
         this.memberID = memberID;
@@ -30,7 +30,7 @@ public class AccountTransactionDto implements Serializable
     }
     public AccountTransactionDto(AccountTransaction accountTransaction)
     {
-        this.setAccountType(accountTransaction.getTransactionId());
+        this.setAccountType(accountTransaction.getAccountType());
         this.setMiles(accountTransaction.getMiles());
         this.setTxDate(accountTransaction.getTransactionDate());
         this.setMemberID(accountTransaction.getMemberID());
@@ -43,12 +43,12 @@ public class AccountTransactionDto implements Serializable
                   dataType = "java.lang.String",
                   example = "5565",
                   required = true)
-    public long getAccountType() {
+    public String getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(long accountTypeID) {
-        this.accountType = accountTypeID;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
     @ApiModelProperty(
             position = 2,

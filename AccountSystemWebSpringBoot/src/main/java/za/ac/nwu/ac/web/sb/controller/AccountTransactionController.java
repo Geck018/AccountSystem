@@ -86,7 +86,7 @@ public class AccountTransactionController {
     })
     public ResponseEntity<GeneralResponse<AccountTransactionDto>> getAccountTransaction(
             @ApiParam(value = "The account id that uniquely identifies the AccountType",example ="5858", name = "accountType", required = true)
-            @PathVariable("accountType") final long accountType)
+            @PathVariable("accountType") final String accountType)
     {
         AccountTransactionDto accountTransaction = fetchAccountTransactionFlow.getAccountTransactionsByAccId(accountType);
         GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true,accountTransaction );

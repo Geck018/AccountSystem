@@ -7,6 +7,6 @@ import java.util.List;
 public interface FetchAccountTransactionFlow
 {
     List<AccountTransactionDto> getAllAccountTransactions();
-    AccountTransactionDto getAccountTransactionsByAccId(long accountType);
+    AccountTransactionDto getAccountTransactionsByAccId(String accountType);
     AccountTransactionDto getAccountTransactionsByMiles(String miles);
 }

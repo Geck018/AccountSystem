@@ -10,10 +10,13 @@ import java.util.Objects;
 @Table(name="ACCOUNT_TRANSACTION",schema="hr")
 public class AccountTransaction implements Serializable {
 
-    public AccountTransaction(long accountType, String miles, LocalDate txDate, String memberID) {
-    }
 
-    public AccountTransaction(long accountType, String miles, LocalDate txDate, long memberID) {
+    public AccountTransaction(String accountType, String miles, LocalDate txDate, String memberID)
+    {
+        this.accountType= accountType;
+        this.memberID = memberID;
+        this.miles = miles;
+        this.txDate = txDate;
     }
 
     public long getTransactionId() {
@@ -28,14 +31,14 @@ public class AccountTransaction implements Serializable {
         this.transactionId = transactionId;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY,targetEntity = AccountType.class)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCOUNT_TYPE_ID")
-    public long getAccountType() {
+    public String getAccountType() {
         return accountType;
     }
     @Column(name = "ACCOUNT_TYPE_ID")
-    private long accountType;
-    public void setAccountType(long accountType) {
+    private String accountType;
+    public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
 
@@ -56,26 +59,26 @@ public class AccountTransaction implements Serializable {
     }
 
 
-    public void setMiles(long amount) {
+    public void setMiles(String miles) {
         this.miles = miles;
     }
 
     @Column(name = "TX_DATE")
-    private LocalDate transactionDate;
+    private LocalDate txDate;
     public LocalDate getTransactionDate() {
-        return transactionDate;
+        return txDate;
     }
 
     public void setTransactionDate(LocalDate transactionDate) {
-        this.transactionDate = transactionDate;
+        this.txDate = txDate;
     }
 
-    public AccountTransaction(long transactionId, long accountTypeId, String memberID, long amount, LocalDate transactionDate) {
+    public AccountTransaction(long transactionId, String accountTypeId, String memberID, String miles, LocalDate txDate) {
         this.transactionId = transactionId;
         this.accountType= accountTypeId;
         this.memberID = memberID;
         this.miles = miles;
-        this.transactionDate = transactionDate;
+        this.txDate = txDate;
     }
 
     public AccountTransaction() {
@@ -86,12 +89,12 @@ public class AccountTransaction implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountTransaction that = (AccountTransaction) o;
-        return transactionId == that.transactionId && accountType == that.accountType && memberID == that.memberID && miles == that.miles && Objects.equals(transactionDate, that.transactionDate);
+        return transactionId == that.transactionId && accountType == that.accountType && memberID == that.memberID && miles == that.miles && Objects.equals(txDate, that.txDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactionId, accountType, memberID, miles, transactionDate);
+        return Objects.hash(transactionId, accountType, memberID, miles, txDate);
     }
 
     @Override
@@ -101,7 +104,7 @@ public class AccountTransaction implements Serializable {
                 ", accountTypeId=" + accountType +
                 ", memberID=" + memberID +
                 ", amount=" + miles +
-                ", transactionDate=" + transactionDate +
+                ", transactionDate=" + txDate +
                 '}';
     }
 }

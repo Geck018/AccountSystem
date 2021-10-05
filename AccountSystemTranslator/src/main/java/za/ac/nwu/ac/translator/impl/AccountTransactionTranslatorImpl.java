@@ -52,7 +52,7 @@ public class AccountTransactionTranslatorImpl implements AccountTransactionTrans
 
     }
     @Override
-    public AccountTransactionDto getAccountTransactionByAccId(long accountType)
+    public AccountTransactionDto getAccountTransactionByAccId(String accountType)
     {
         try
         {
