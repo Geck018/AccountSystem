@@ -96,7 +96,7 @@ public class AccountTransactionController {
         GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true,accountTransaction );
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-    @PatchMapping("accountType")
+    @PatchMapping("/{accountType}/{miles}")
     @ApiOperation(value = "Updates the Miles in the AccountTransaction", notes = "Updates the Miles in the AccountTransaction")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "AccountTransaction updated successfully", response = GeneralResponse.class),
@@ -105,9 +105,9 @@ public class AccountTransactionController {
     })
     public ResponseEntity<GeneralResponse<AccountTransactionDto>> addAccountTransactionMiles(
             @ApiParam(value = "The account id that uniquely identifies the AccountType",example ="9797", name = "accountType", required = true)
-            @PathVariable(value = "accountType") final String miles, String amount)
+            @PathVariable(value = "accountType") final String accountType, String miles, String amount)
     {
-        AccountTransactionDto accountTransaction = addAccountTransactionMilesFlow.addAccountTransactionMiles(miles, amount);
+        AccountTransactionDto accountTransaction = addAccountTransactionMilesFlow.addAccountTransactionMiles(accountType,miles, amount);
         GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true,accountTransaction );
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }

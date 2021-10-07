@@ -82,7 +82,7 @@ public class AccountTransactionTranslatorImpl implements AccountTransactionTrans
     {
         try
         {
-            AccountTransaction accountTransaction = accountTransactionRepository.addAccountTransactionMiles(miles, amount);
+            AccountTransaction accountTransaction = accountTransactionRepository.save(accountTransactionRepository.addAccountTransactionMiles(amount, miles));
 
             return new AccountTransactionDto(accountTransaction);
         }
@@ -90,6 +90,12 @@ public class AccountTransactionTranslatorImpl implements AccountTransactionTrans
         {
             throw new RuntimeException("Unable to read from DB", e);
         }
+    }
+    @Override
+    public int getMiles(String accountType)
+    {
+        int accountTransaction = accountTransactionRepository.getMiles(accountType);
+        return accountTransaction;
     }
 
 

@@ -12,4 +12,5 @@ public interface AccountTransactionTranslator
     AccountTransactionDto getAccountTransactionByMiles(String miles);
 
     AccountTransactionDto addAccountTransactionMiles(String miles, String amount);
+    int getMiles(String accountType);
 }
