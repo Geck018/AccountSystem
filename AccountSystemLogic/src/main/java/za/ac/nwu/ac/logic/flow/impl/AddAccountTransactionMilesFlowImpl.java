@@ -30,5 +30,9 @@ public class AddAccountTransactionMilesFlowImpl implements AddAccountTransaction
         int miles = accountTransactionTranslator.getMiles(accountType);
         return miles;
     }
+    public boolean methodToTest()
+    {
+        return true;
+    }
 
 }

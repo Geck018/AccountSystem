@@ -29,6 +29,10 @@ public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionF
     {
         return accountTransactionTranslator.getAccountTransactionByAccId(accountType);
     }
+    public boolean methodToTest()
+    {
+        return true;
+    }
 
 
 }

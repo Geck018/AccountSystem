@@ -29,4 +29,8 @@ public class CreateAccountTypeFlowImpl implements CreateAccountTypeFlow
         }
         return accountTypeTranslator.createAccountType(accountType);
     }
+    public boolean methodToTest()
+    {
+        return true;
+    }
 }

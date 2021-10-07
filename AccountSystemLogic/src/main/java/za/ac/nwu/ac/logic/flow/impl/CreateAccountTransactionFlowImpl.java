@@ -29,4 +29,8 @@ public class CreateAccountTransactionFlowImpl implements CreateAccountTransactio
         }
         return accountTransactionTranslator.createAccountTransaction(accountTransaction);
     }
+    public boolean methodToTest()
+    {
+        return true;
+    }
 }
