@@ -96,7 +96,7 @@ public class AccountTransactionController {
         GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true,accountTransaction );
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-    @PatchMapping("/{accountType}/{miles}")
+    @PatchMapping("accountType")
     @ApiOperation(value = "Updates the Miles in the AccountTransaction", notes = "Updates the Miles in the AccountTransaction")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "AccountTransaction updated successfully", response = GeneralResponse.class),
