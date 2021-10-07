@@ -1,20 +1,27 @@
 package za.ac.nwu.ac.logic.flow.impl;
 
+import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
 import za.ac.nwu.ac.logic.flow.AddAccountTransactionMilesFlow;
-import za.ac.nwu.ac.translator.AccountTypeTranslator;
+import za.ac.nwu.ac.translator.AccountTransactionTranslator;
 
+import javax.transaction.Transactional;
+
+@Transactional
+@Component("addAccountMilesFlow")
 public class AddAccountTransactionMilesImpl implements AddAccountTransactionMilesFlow
 {
-    private String amount;
+    private AccountTransactionTranslator accountTransactionTranslator;
 
-    public void addAccountTransactionMilesFlow(String amount)
+    public void AddAccountTransactionMilesFlowImpl()
     {
-        this.amount = amount;
     }
 
     @Override
-    public AccountTransactionDto addMilesAccountTransaction(String amount) {
-        return null;
+    public AccountTransactionDto addAccountTransactionMiles(String miles, String amount)
+    {
+
+            return accountTransactionTranslator.addAccountTransactionMiles(miles, amount);
     }
+
 }

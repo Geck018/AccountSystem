@@ -77,5 +77,20 @@ public class AccountTransactionTranslatorImpl implements AccountTransactionTrans
             throw new RuntimeException("Unable to read from DB", e);
         }
     }
+    @Override
+    public AccountTransactionDto addAccountTransactionMiles(String miles, String amount)
+    {
+        try
+        {
+            AccountTransaction accountTransaction = accountTransactionRepository.addAccountTransactionMiles(miles, amount);
+
+            return new AccountTransactionDto(accountTransaction);
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException("Unable to read from DB", e);
+        }
+    }
+
 
 }

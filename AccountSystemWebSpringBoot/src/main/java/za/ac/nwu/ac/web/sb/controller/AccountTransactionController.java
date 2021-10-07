@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.service.GeneralResponse;
+import za.ac.nwu.ac.logic.flow.AddAccountTransactionMilesFlow;
 import za.ac.nwu.ac.logic.flow.CreateAccountTransactionFlow;
 import za.ac.nwu.ac.logic.flow.FetchAccountTransactionFlow;
 
@@ -22,12 +23,15 @@ import java.util.List;
 public class AccountTransactionController {
     private final FetchAccountTransactionFlow fetchAccountTransactionFlow;
     private final CreateAccountTransactionFlow createAccountTransactionFlow;
+    private final AddAccountTransactionMilesFlow addAccountTransactionMilesFlow;
 
     @Autowired
     public AccountTransactionController(FetchAccountTransactionFlow fetchAccountTransactionFlow,
-                                        @Qualifier("createAccountTransactionFlowName") CreateAccountTransactionFlow createAccountTransactionFlow) {
+                                        @Qualifier("createAccountTransactionFlowName") CreateAccountTransactionFlow createAccountTransactionFlow,
+                                        @Qualifier("addAccountMilesFlow")AddAccountTransactionMilesFlow addAccountTransactionMilesFlow) {
         this.createAccountTransactionFlow = createAccountTransactionFlow;
         this.fetchAccountTransactionFlow = fetchAccountTransactionFlow;
+        this.addAccountTransactionMilesFlow =  addAccountTransactionMilesFlow;
     }
 
     @GetMapping("/ping")
@@ -92,6 +96,22 @@ public class AccountTransactionController {
         GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true,accountTransaction );
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+    @PatchMapping("/{accountType}/{miles}")
+    @ApiOperation(value = "Updates the Miles in the AccountTransaction", notes = "Updates the Miles in the AccountTransaction")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "AccountTransaction updated successfully", response = GeneralResponse.class),
+            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)
+    })
+    public ResponseEntity<GeneralResponse<AccountTransactionDto>> addAccountTransactionMiles(
+            @ApiParam(value = "The account id that uniquely identifies the AccountType",example ="9797", name = "accountType", required = true)
+            @PathVariable(value = "accountType") final String miles, String amount)
+    {
+        AccountTransactionDto accountTransaction = addAccountTransactionMilesFlow.addAccountTransactionMiles(miles, amount);
+        GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true,accountTransaction );
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+    }
+
 
 
 }
