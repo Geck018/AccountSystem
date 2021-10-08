@@ -1,3 +1,5 @@
+//This is the rest controller for the account transaction table
+
 package za.ac.nwu.ac.web.sb.controller;
 
 import io.swagger.annotations.ApiOperation;

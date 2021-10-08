@@ -1,3 +1,5 @@
+//This class configures the spring settings for the logic module
+
 package za.ac.nwu.ac.logic.config;
 
 import org.springframework.context.annotation.ComponentScan;

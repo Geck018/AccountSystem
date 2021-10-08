@@ -1,3 +1,5 @@
+//This class creates an entity that is used to call a response from the server
+
 package za.ac.nwu.ac.domain.service;
 
 import java.io.Serializable;

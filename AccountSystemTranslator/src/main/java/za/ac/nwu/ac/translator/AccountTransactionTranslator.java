@@ -1,3 +1,5 @@
+//This class defines the methods to be used in the translator
+
 package za.ac.nwu.ac.translator;
 
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;

@@ -1,3 +1,5 @@
+//This class tests the relevant dto to ensure its function
+
 package za.ac.nwu.ac.domain.dto;
 
 import org.junit.Test;

@@ -1,3 +1,5 @@
+//This class is a unit test class, testing its relevant flow implementation
+
 package za.ac.nwu.ac.logic.flow.impl;
 
 import org.junit.After;

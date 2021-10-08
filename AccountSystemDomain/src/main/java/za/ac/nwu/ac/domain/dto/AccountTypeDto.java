@@ -1,3 +1,5 @@
+//This class creates a dto in the domain to be accessed across the application structure
+
 package za.ac.nwu.ac.domain.dto;
 
 import io.swagger.annotations.ApiModel;

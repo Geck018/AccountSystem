@@ -1,3 +1,5 @@
+//This class implements spring boot to run the application standalone
+
 package za.ac.nwu.ac.web.sb;
 
 import org.springframework.boot.SpringApplication;

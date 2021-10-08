@@ -1,5 +1,6 @@
-package za.ac.nwu.ac.repo.persistence;
+//This class defines the queries and methods associated with them that will be used by hibernate as configured in the repositoryconfig class
 
+package za.ac.nwu.ac.repo.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

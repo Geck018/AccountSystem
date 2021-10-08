@@ -1,5 +1,7 @@
-package za.ac.nwu.ac.domain.persistence;
+//This class defines the structure of the Account-Transaction Table.
 
+
+package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,3 +1,5 @@
+//This class configures the translator module
+
 package za.ac.nwu.ac.translator.config;
 
 import org.springframework.context.annotation.ComponentScan;

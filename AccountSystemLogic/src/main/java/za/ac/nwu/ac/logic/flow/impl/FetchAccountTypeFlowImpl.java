@@ -1,3 +1,5 @@
+//This class defines the processes and logic for the fetch account type method
+
 package za.ac.nwu.ac.logic.flow.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;

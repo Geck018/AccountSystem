@@ -1,3 +1,5 @@
+//This class defines the structure of the Account-Type Table.
+
 package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;

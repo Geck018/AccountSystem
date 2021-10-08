@@ -1,3 +1,5 @@
+//This class configures the repository level of the application
+
 package za.ac.nwu.ac.repo.config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;

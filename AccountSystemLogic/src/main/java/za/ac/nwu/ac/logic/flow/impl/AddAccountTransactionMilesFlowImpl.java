@@ -1,3 +1,5 @@
+//This class defines the processes and logic for the updating miles method
+
 package za.ac.nwu.ac.logic.flow.impl;
 
 import org.springframework.stereotype.Component;
@@ -27,8 +29,7 @@ public class AddAccountTransactionMilesFlowImpl implements AddAccountTransaction
     @Override
     public int getMiles(String accountType)
     {
-        int miles = accountTransactionTranslator.getMiles(accountType);
-        return miles;
+        return accountTransactionTranslator.getMiles(accountType);
     }
     public boolean methodToTest()
     {

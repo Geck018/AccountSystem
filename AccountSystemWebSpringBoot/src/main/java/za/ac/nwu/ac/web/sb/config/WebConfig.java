@@ -1,3 +1,5 @@
+//This class configures the web service module
+
 package za.ac.nwu.ac.web.sb.config;
 
 import org.springframework.context.annotation.ComponentScan;

@@ -1,3 +1,5 @@
+//This class defines the processes and logic for the create new account type method
+
 package za.ac.nwu.ac.logic.flow.impl;
 
 

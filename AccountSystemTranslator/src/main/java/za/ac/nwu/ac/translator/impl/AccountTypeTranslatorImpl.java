@@ -1,3 +1,5 @@
+//This class implements the account type translator's methods
+
 package za.ac.nwu.ac.translator.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;

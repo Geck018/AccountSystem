@@ -1,3 +1,5 @@
+//This class defines the processes and logic for the creating new account transaction method
+
 package za.ac.nwu.ac.logic.flow.impl;
 
 import org.springframework.stereotype.Component;
